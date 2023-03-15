@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.util.Scanner;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import java.sql.ResultSet;
@@ -71,6 +72,7 @@ public final class CDSearch0_005f7_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -85,10 +87,21 @@ public final class CDSearch0_005f7_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("  cursor: pointer;\n");
       out.write("  background-color: #0b5ed7;\n");
       out.write("/*  right: 15px; top: 15px*/\n");
+      out.write("\n");
       out.write("float: right;\n");
       out.write("   display: stretch;\n");
       out.write("  flex-flow: row wrap;\n");
       out.write("  align-items: center;\n");
+      out.write("}\n");
+      out.write("button[type=\"submit\"] {\n");
+      out.write("    background-color: #65bfe6;\n");
+      out.write("    color: white;\n");
+      out.write("    border: none;\n");
+      out.write("    padding: 10px 20px;\n");
+      out.write("    border-radius: 80%;\n");
+      out.write("    \n");
+      out.write("    font-size: 16px;\n");
+      out.write("    cursor: pointer;\n");
       out.write("}\n");
       out.write(".top-header{\n");
       out.write("    color: white;\n");
@@ -98,6 +111,15 @@ public final class CDSearch0_005f7_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("    left:0;\n");
       out.write("    right:0;\n");
       out.write("    z-index: 10;\n");
+      out.write("    background: #4261cf;\n");
+      out.write("  background: -moz-linear-gradient(45deg, #3023ae 0%, #53a0fd 100%);\n");
+      out.write("  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #3023ae), color-stop(100%, #53a0fd));\n");
+      out.write("  background: -webkit-linear-gradient(45deg, #3023ae 0%, #53a0fd 100%);\n");
+      out.write("  background: -o-linear-gradient(45deg, #3023ae 0%, #53a0fd 100%);\n");
+      out.write("  background: -ms-linear-gradient(45deg, #3023ae 0%, #53a0fd 100%);\n");
+      out.write("  background: linear-gradient(45deg, #3023ae 0%, #53a0fd 100%);\n");
+      out.write("  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$gradient-start', endColorstr='$gradient-end',GradientType=1 );\n");
+      out.write("  color: white;\n");
       out.write("}\n");
       out.write(".inputS{\n");
       out.write("    height: 2rem;\n");
@@ -132,7 +154,7 @@ public final class CDSearch0_005f7_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <header class=\"top-header\">\n");
-      out.write("            <a href=\"index3.jsp\">\n");
+      out.write("            <a href=\"loginp2.jsp\">\n");
       out.write("            <button class=\"button\" >Login</button>\n");
       out.write("        </a>\n");
       out.write("         ");
@@ -145,7 +167,12 @@ request.setCharacterEncoding("UTF-8");
  if(request.getParameter("user") == null){ 
       out.write("\n");
       out.write("            <input type=\"text\" name=\"user\" class=\"inputS\"   value=\"\"/>\n");
-      out.write("                <input type=\"submit\" class=\"submit\" value=\"Search\"/>\n");
+      out.write("            <label for=\"number\">Enter a number:</label>\n");
+      out.write("  <input type=\"number\" name=\"number\" id=\"number\" value=\"10\"/>\n");
+      out.write("<!--            <input type=\"submit\" class=\"submit\" value=\"Search\"/>-->\n");
+      out.write("            <button type=\"submit\">\n");
+      out.write("                <img src=\"https://cdn.iconscout.com/icon/free/png-512/search-1941-1143726.png?f=avif&w=256\" width=\"25\" height=\"25\">\n");
+      out.write("            </button>\n");
       out.write("            ");
 }
       out.write("\n");
@@ -155,7 +182,15 @@ request.setCharacterEncoding("UTF-8");
       out.write("            <input type=\"text\" name=\"user\" class=\"inputS\" value=");
       out.print(request.getParameter("user"));
       out.write(" />\n");
-      out.write("            <input type=\"submit\" class=\"submit\" value=\"Search\"/>\n");
+      out.write("            <label for=\"number\">Enter a number:</label>\n");
+      out.write("           \n");
+      out.write("  <input type=\"number\" name=\"number\" id=\"number\" value=\"10\"/>\n");
+      out.write("          \n");
+      out.write("         \n");
+      out.write("            <button type=\"submit\">\n");
+      out.write("                <img src=\"https://cdn.iconscout.com/icon/free/png-512/search-1941-1143726.png?f=avif&w=256\" width=\"25\" height=\"25\">\n");
+      out.write("            </button>\n");
+      out.write("<!--            <img src=\"search-interface-symbol.png\" alt=\"\"/>-->\n");
       out.write("            ");
 }
       out.write("\n");
@@ -179,6 +214,7 @@ request.setCharacterEncoding("UTF-8");
                 Mongo mg = new Mongo("localhost", 27017);
                 DB db = mg.getDB("testruntime2");
                 DBCollection collection = db.getCollection("run");
+                
                 //---------------------------
                 //BasicDBObject me = new BasicDBObject();
                 //me.put("name", "55");
@@ -191,7 +227,15 @@ request.setCharacterEncoding("UTF-8");
 //                whereQuery.put("keyword", request.getParameter("user"));
                 //BasicDBObject fields = new BasicDBObject();
                 //fields.put("employeeId", 1);
-                DBCursor cursor = collection.find(whereQuery);
+                String strNumber = request.getParameter("number");
+                int number = 0;
+                if (strNumber != null) {
+                    number = Integer.parseInt(strNumber);
+                }
+                if(number != 0){
+//                out.print("Number of rows"+number);
+                }
+                DBCursor cursor = collection.find(whereQuery).limit(number);
                 
                 //เมื่อหาไม่เจอ-------------------
                 DBCursor cursorNotfind = collection.find(whereQuery);

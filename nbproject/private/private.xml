@@ -3,23 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/Officer.jsp</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/officer-list.jsp</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/update3.jsp</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/databaseSelectInsert4New.jsp</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/insertadmin.jsp</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/CDSearch0_7.jsp</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/databaseSelect2.jsp</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/src/java/controller/login.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/logo.png</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/databaseSelect.jsp</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/index3.jsp</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/src/java/officermanagement/web/OfficerServlet.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/officer-form.jsp</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/src/java/officermanagement/dao/OfficerDAO.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/src/java/officermanagement/model/Officer.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/search.jsp</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/xxx.css</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/update3test.jsp</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/databaseSelect4New.jsp</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/databasedelete.jsp</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/insert3test.jsp</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/loginp2.jsp</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/databaseSelect3.jsp</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/Error.jsp</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/databaseSelect3New.jsp</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/loginreal.jsp</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/deleteadmin.jsp</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/adminBest.jsp</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/CDSearch0_8engin.jsp</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/login/web/loginp.jsp</file>
         </group>
     </open-files>
 </project-private>

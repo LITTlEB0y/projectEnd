@@ -1,10 +1,11 @@
 <%-- 
     Document   : CDSearch
     Created on : Nov 2, 2022, 10:39:22 AM
-    Author     : user
+    Author     : user55
 --%>
 
 
+<%@page import="java.util.Scanner"%>
 <%@page import="org.json.simple.JSONObject"%>
 <%@page import="org.json.simple.parser.JSONParser"%>
 <%@page import="java.sql.ResultSet"%>
@@ -33,10 +34,21 @@
   cursor: pointer;
   background-color: #0b5ed7;
 /*  right: 15px; top: 15px*/
+
 float: right;
    display: stretch;
   flex-flow: row wrap;
   align-items: center;
+}
+button[type="submit"] {
+    background-color: #65bfe6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 80%;
+    
+    font-size: 16px;
+    cursor: pointer;
 }
 .top-header{
     color: white;
@@ -46,6 +58,15 @@ float: right;
     left:0;
     right:0;
     z-index: 10;
+    background: #4261cf;
+  background: -moz-linear-gradient(45deg, #3023ae 0%, #53a0fd 100%);
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #3023ae), color-stop(100%, #53a0fd));
+  background: -webkit-linear-gradient(45deg, #3023ae 0%, #53a0fd 100%);
+  background: -o-linear-gradient(45deg, #3023ae 0%, #53a0fd 100%);
+  background: -ms-linear-gradient(45deg, #3023ae 0%, #53a0fd 100%);
+  background: linear-gradient(45deg, #3023ae 0%, #53a0fd 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$gradient-start', endColorstr='$gradient-end',GradientType=1 );
+  color: white;
 }
 .inputS{
     height: 2rem;
@@ -80,7 +101,7 @@ td, th {
     </head>
     <body>
         <header class="top-header">
-            <a href="index3.jsp">
+            <a href="loginp2.jsp">
             <button class="button" >Login</button>
         </a>
          <%request.setCharacterEncoding("UTF-8");
@@ -89,11 +110,24 @@ td, th {
         <FORM action="CDSearch0_7.jsp" METHOD="POST">
             <% if(request.getParameter("user") == null){ %>
             <input type="text" name="user" class="inputS"   value=""/>
-                <input type="submit" class="submit" value="Search"/>
+            <label for="number">Enter a number:</label>
+  <input type="number" name="number" id="number" value="10"/>
+<!--            <input type="submit" class="submit" value="Search"/>-->
+            <button type="submit">
+                <img src="https://cdn.iconscout.com/icon/free/png-512/search-1941-1143726.png?f=avif&w=256" width="25" height="25">
+            </button>
             <%}%>
             <% if(request.getParameter("user") != null){ %>
             <input type="text" name="user" class="inputS" value=<%=request.getParameter("user")%> />
-            <input type="submit" class="submit" value="Search"/>
+            <label for="number">Enter a number:</label>
+           
+  <input type="number" name="number" id="number" value="10"/>
+          
+         
+            <button type="submit">
+                <img src="https://cdn.iconscout.com/icon/free/png-512/search-1941-1143726.png?f=avif&w=256" width="25" height="25">
+            </button>
+<!--            <img src="search-interface-symbol.png" alt=""/>-->
             <%}%>
         </FORM>
         
@@ -114,6 +148,7 @@ td, th {
                 Mongo mg = new Mongo("localhost", 27017);
                 DB db = mg.getDB("testruntime2");
                 DBCollection collection = db.getCollection("run");
+                
                 //---------------------------
                 //BasicDBObject me = new BasicDBObject();
                 //me.put("name", "55");
@@ -126,7 +161,15 @@ td, th {
 //                whereQuery.put("keyword", request.getParameter("user"));
                 //BasicDBObject fields = new BasicDBObject();
                 //fields.put("employeeId", 1);
-                DBCursor cursor = collection.find(whereQuery);
+                String strNumber = request.getParameter("number");
+                int number = 0;
+                if (strNumber != null) {
+                    number = Integer.parseInt(strNumber);
+                }
+                if(number != 0){
+//                out.print("Number of rows"+number);
+                }
+                DBCursor cursor = collection.find(whereQuery).limit(number);
                 
                 //เมื่อหาไม่เจอ-------------------
                 DBCursor cursorNotfind = collection.find(whereQuery);
