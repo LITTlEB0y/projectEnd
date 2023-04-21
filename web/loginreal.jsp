@@ -19,7 +19,10 @@
 PreparedStatement ps = null;
 ResultSet rs = null;
 String username = request.getParameter("username");
-  String password = request.getParameter("password");
+String password = request.getParameter("password");
+
+session.setAttribute("usernamein", username);
+session.setAttribute("passwordin", password);
 try {
 Class.forName("com.mysql.jdbc.Driver");
   
@@ -42,7 +45,7 @@ Class.forName("com.mysql.jdbc.Driver");
     if (role.equals("admin")) {
       response.sendRedirect("adminBest.jsp");
     } else if (role.equals("officer")) {
-      response.sendRedirect("databaseSelect3.jsp");
+      response.sendRedirect("ViewSelect4.jsp");
     } else {
       // Invalid role, redirect to the failure page
       response.sendRedirect("failure.jsp");

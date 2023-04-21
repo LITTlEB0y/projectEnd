@@ -18,10 +18,10 @@
   int id = Integer.parseInt(request.getParameter("id"));
 
   // Construct the SQL DELETE statement
-  String sql = "DELETE FROM tableorder WHERE id = " + id;
+  String sql = "DELETE FROM config WHERE id = " + id;
 
   // Execute the statement using a JDBC connection
-  Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/loginpend?user=root&password=");
+  Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/converterdb?user=root&password=");
   Statement stmt = conn.createStatement();
   stmt.executeUpdate(sql);
   String path = "./adminBest.jsp";

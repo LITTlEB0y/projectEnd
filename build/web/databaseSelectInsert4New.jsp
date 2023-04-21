@@ -72,7 +72,7 @@
   color: white;
 }
 input[type=text], select {
-  width: 100%;
+  width: 80%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -82,7 +82,7 @@ input[type=text], select {
 }
 
 input[type=submit] {
-  width: 100%;
+  width: 85%;
   background-color: #4CAF50;
   color: black;
   padding: 14px 20px;
@@ -100,20 +100,19 @@ div {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+    
 }
 label{
     color: black;
 }
         </style>
       <h1>Insert Record</h1>
-    <form action="update3.jsp" method="post">
-                   
-<!--                    <label>Name:</label>
-                    <input type="text" name="name" value=""><br><br>
-                    <label>Age:</label>
-                    <input type="text" name="age" value=""><br><br>
-                    <input type="submit" value="Update">-->
-                </form>
+ 
                     
                     
  <%
@@ -180,7 +179,7 @@ Connection contest = DriverManager.getConnection("jdbc:mysql://localhost/"+list1
  String tableName = list2;
 // String primaryKey = "id";
   
- 
+
   
   PreparedStatement stmt = contest.prepareStatement("SELECT * FROM " + tableName );
  
@@ -195,11 +194,12 @@ Connection contest = DriverManager.getConnection("jdbc:mysql://localhost/"+list1
   
     for (String columnName : columnNames) {
       
-      formHtml += "<label>" + columnName + ":</label>";
       
-      formHtml += "<input type='text' name='" + columnName + "'><br>";
+      formHtml += "<label>" + columnName + "</label>";
       
-     
+      formHtml += "<br><input type='text' name='" + columnName + "'>";
+      
+      
     }
   
   formHtml += "<input type='submit' value='Insert'>";

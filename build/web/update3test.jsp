@@ -65,7 +65,7 @@ sql.append(" WHERE "+columnUpdates[0]+" = ").append(id);
 
 String path = "http://localhost:8084/login/databaseSelect3.jsp?list1="+list1+"&listtable="+list2+"";
     response.sendRedirect(path);
-//    out.println(rowsUpdated + " rows updated");
+    out.println(rowsUpdated + " rows updated");
     } catch (Exception e) {
 //        out.println(e);
     }
